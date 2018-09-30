@@ -8,9 +8,9 @@ private:
 	int m_nColumnas;
 public:
 	CMatFloat() {}
+	bool existe();
 	void Iniciar();
 	void CrearMatriz(int nFilas=1, int nColumnas=1);
 	void Introducir();
 	void Mostrar();
-	bool existe();
 };

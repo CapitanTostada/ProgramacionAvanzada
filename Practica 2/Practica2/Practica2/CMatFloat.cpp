@@ -16,6 +16,11 @@ public:
 		m_nColumnas = 0;
 	}
 
+	//Devuelve true si no existe y false si existe
+	bool existe() {
+		return m_ppDatosF.empty();
+	}
+
 	void Iniciar() {
 		m_ppDatosF.clear();
 	}
@@ -25,7 +30,7 @@ public:
 	}
 
 	void Introducir() {
-		if (!existe()) {
+		if (!this->existe()) {
 			cout << "Introduzca los valores de la matriz pulsando enter despues de cada uno\n";
 			for (int i = 0; i < m_ppDatosF.size(); i++) {
 				cout << "Fila " << i + 1 << ": \n";
@@ -38,7 +43,7 @@ public:
 	}
 
 	void Mostrar() {
-		if (!existe()) {
+		if (!this->existe()) {
 			for (int i = 0; i < m_ppDatosF.size(); i++) {
 				cout << '\n';
 				for (int j = 0; j < m_ppDatosF[i].size(); j++)
@@ -49,8 +54,4 @@ public:
 			cout << "La matriz no está inicializada";
 	}
 
-	//Devuelve true si no existe y false si existe
-	bool existe() {
-		return m_ppDatosF.empty();
-	}
 };
