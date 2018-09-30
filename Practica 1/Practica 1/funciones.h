@@ -10,6 +10,8 @@ struct MatFloat {
 };
 
 void Mostrar(MatFloat mOrigen);
+void IntroducirDatos(MatFloat *pDestino);
+int comprobarEntrada();
 
 enum opciones {
 	Construir,
