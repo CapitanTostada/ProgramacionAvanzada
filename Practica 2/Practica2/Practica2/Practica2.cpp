@@ -1,7 +1,7 @@
 #include <iostream>
-#include "CMatFloat.h"
 #include "utils.h"
 using namespace std;
+#include "CMatFloat.h"
 
 
 int main() {
@@ -22,7 +22,6 @@ int main() {
 
 	} while (opcion > 5 && opcion < 0);
 	seleccion = opciones(--opcion);
-	matriz.Iniciar();
 
 	while (salir == false) {
 		switch (seleccion) {
