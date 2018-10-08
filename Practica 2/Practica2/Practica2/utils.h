@@ -6,3 +6,5 @@ enum opciones {
 	Imprimir,
 	Salir
 };
+
+bool ComprobarLimites(int inferior, int superior, int num);

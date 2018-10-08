@@ -115,6 +115,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Practica 2\Practica2\Practica2\utils.cpp" />
+    <ClCompile Include="CHora.cpp" />
+    <ClCompile Include="Practica3.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Practica 2\Practica2\Practica2\utils.h" />
+    <ClInclude Include="CHora.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
