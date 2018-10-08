@@ -1,2 +1,14 @@
-﻿  practica1.cpp
-  Practica 1.vcxproj -> D:\ProgramacionAvanzada\Practica 1\Debug\Practica 1.exe
+﻿  funciones.cpp
+c:\users\luis\source\repos\programacionavanzada\practica 1\practica 1\funciones.cpp(19): warning C4018: '<': signed/unsigned mismatch
+c:\users\luis\source\repos\programacionavanzada\practica 1\practica 1\funciones.cpp(21): warning C4018: '<': signed/unsigned mismatch
+c:\users\luis\source\repos\programacionavanzada\practica 1\practica 1\funciones.cpp(22): warning C4244: '=': conversion from 'int' to '_Ty', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+c:\users\luis\source\repos\programacionavanzada\practica 1\practica 1\funciones.cpp(27): warning C4018: '<': signed/unsigned mismatch
+c:\users\luis\source\repos\programacionavanzada\practica 1\practica 1\funciones.cpp(29): warning C4018: '<': signed/unsigned mismatch
+  practica1.cpp
+  Generating Code...
+  LINK : C:\Users\Luis\source\repos\ProgramacionAvanzada\Practica 1\Debug\Practica 1.exe not found or not built by the last incremental link; performing full link
+  Practica 1.vcxproj -> C:\Users\Luis\source\repos\ProgramacionAvanzada\Practica 1\Debug\Practica 1.exe
