@@ -16,10 +16,8 @@ protected:
 public:
 	CHora();
 	~CHora();
-	void Iniciar();
 	bool AsignarHora(int nHoras, int nMinutos, int nSegundos, char *pszFormato);
 	void ObtenerHora(int& nHoras, int& nMinutos, int& nSegundos, char *pszFormato) const;
-	void Destruir();
 };
 
 void VisualizarHora(const CHora& hora);

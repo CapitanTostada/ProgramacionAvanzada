@@ -13,6 +13,7 @@ enum Lista {
 	Terminar
 };
 
+bool LeerEntrada(int& num);
 char* LeerCadena(int n);
 void converMayus(char* str);
 bool ComprobarLimites(int inferior, int superior, int num);

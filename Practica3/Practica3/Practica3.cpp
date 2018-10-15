@@ -8,9 +8,10 @@ int main() {
 	CHora Fecha;
 	Lista seleccion;
 	int opcion;
-	bool salir = false;
+	bool salir = false, correcta = false;
 	char* pszFormato = NULL;
 	int nHoras, nMinutos, nSegundos;
+	int num;
 
 	do {
 		cout << "Menu de opciones: "
@@ -25,15 +26,22 @@ int main() {
 	while (salir == false) {
 		switch (seleccion) {
 		case Poner:
-			cout << "\nPor favor introduzca la hora:";
-			nHoras = comprobarEntrada();
-			cout << "\nPor favor introduzca la minutos:";
-			nMinutos = comprobarEntrada();
-			cout << "\nPor favor introduzca la segundos:";
-			nSegundos = comprobarEntrada();
-			cout << "\nPor favor introduzca el formato(AM, PM, 24 HORAS):";
-			pszFormato = LeerCadena(9);
-			Fecha.AsignarHora(nHoras, nMinutos, nSegundos, pszFormato);
+			do
+			{
+				cout << "\nPor favor introduzca la hora:";
+				cout << LeerEntrada(num);
+				nHoras = 0;
+				cout << "\nPor favor introduzca la minutos:";
+				nMinutos = comprobarEntrada();
+				cout << "\nPor favor introduzca la segundos:";
+				nSegundos = comprobarEntrada();
+				cout << "\nPor favor introduzca el formato(AM, PM, 24 HORAS):";
+				pszFormato = LeerCadena(9);
+				correcta = Fecha.AsignarHora(nHoras, nMinutos, nSegundos, pszFormato);
+				if (correcta == false)
+					cout << "Hora no valida";
+			} while (correcta == false);
+			
 			break;
 		case Visualizar:
 			VisualizarHora(Fecha);
