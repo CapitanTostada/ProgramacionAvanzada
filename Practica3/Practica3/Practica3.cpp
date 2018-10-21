@@ -12,41 +12,31 @@ int main() {
 	char* pszFormato = NULL;
 	int nHoras, nMinutos, nSegundos;
 	int num;
-
-	do {
-		cout << "Menu de opciones: "
-			<< "\n\t 1. Introducir hora: introduce la hora"
-			<< "\n\t 2. Visualizar hora: muestra la hora"
-			<< "\n\t 3. Salir: sale del programa"
-			<< "\nIntroduce la opcion deseada: ";
-		opcion = comprobarEntrada();
-	} while (opcion > 3 && opcion < 0);
+	CHora* p = NULL;
+	opcion = Menu();
 	seleccion = Lista(--opcion);
 
 	while (salir == false) {
 		switch (seleccion) {
-		case Poner:
-			do
-			{
-				cout << "\nPor favor introduzca la hora:";
-				cout << LeerEntrada(num);
-				nHoras = 0;
-				cout << "\nPor favor introduzca la minutos:";
-				nMinutos = comprobarEntrada();
-				cout << "\nPor favor introduzca la segundos:";
-				nSegundos = comprobarEntrada();
-				cout << "\nPor favor introduzca el formato(AM, PM, 24 HORAS):";
-				pszFormato = LeerCadena(9);
-				correcta = Fecha.AsignarHora(nHoras, nMinutos, nSegundos, pszFormato);
-				if (correcta == false)
-					cout << "Hora no valida";
-			} while (correcta == false);
-			
+		case Local:
+			SubMenu();
 			break;
-		case Visualizar:
-			VisualizarHora(Fecha);
+		case Dinamico:
+			p = new CHora;
 			break;
+		case Copia: {
+			if (p == NULL)
+				cout << "Cree antes el objeto dinamicamente\n";
+			else
+				CHora fecha2(*p);
+			break;
+		}
+		case Asignacion: {
+			CHora fecha3 = *p;
+			break;
+		}
 		case Terminar:
+			delete p;
 			salir = true;
 			break;
 		default:
@@ -54,10 +44,9 @@ int main() {
 		}
 		if (!salir) {
 			do {
-				cout << "\nIntroduzca la opcion que quiere hacer a continuacion: ";
-				opcion = comprobarEntrada();
+				opcion = Menu();
 				seleccion = Lista(--opcion);
-			} while (opcion > 3 && opcion < 0);
+			} while (opcion > 5 && opcion < 0);
 		}
 	}
 }
