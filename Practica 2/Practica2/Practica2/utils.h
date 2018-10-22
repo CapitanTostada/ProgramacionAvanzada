@@ -8,9 +8,20 @@ enum opciones {
 };
 
 enum Lista {
-	Poner,
-	Visualizar,
+	Local,
+	Dinamico,
+	Copia,
+	Asignacion,
 	Terminar
+};
+
+enum Submenu {
+	Predeterminada,
+	Hora,
+	Minutos,
+	Segundos,
+	Formato,
+	Exit
 };
 
 bool LeerEntrada(int& num);
