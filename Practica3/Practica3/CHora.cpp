@@ -116,7 +116,7 @@ void SubMenu() {
 	int opcion;
 	Submenu seleccion;
 	do {
-		cout << "Menu de opciones: "
+		cout << "\nMenu de opciones: "
 			<< "\n\t 1. Introducir una hora predeterminada"
 			<< "\n\t 2. Introducir la hora"
 			<< "\n\t 3. Introducir la hora y los minutos"
@@ -127,7 +127,7 @@ void SubMenu() {
 		opcion = comprobarEntrada();
 	} while (opcion > 6 && opcion < 0);
 	seleccion = Submenu(--opcion);
-
+	system("cls");
 	switch (seleccion) {
 	case Predeterminada: {
 		CHora Fecha;
@@ -183,7 +183,7 @@ void SubMenu() {
 int Menu() {
 	int opcion;
 	do {
-		cout << "Menu de opciones: "
+		cout << "\nMenu de opciones: "
 			<< "\n\t 1. Crear objeto local"
 			<< "\n\t 2. Crear objeto dinamicamente"
 			<< "\n\t 3. Constructor copia"
@@ -195,8 +195,8 @@ int Menu() {
 	return opcion;
 }
 
-CHora CHora::operator=(CHora obj) {
-	CHora fecha2(obj);
-	cout << "Ejecutado con sobrecarga";
+CHora& CHora::operator=(CHora* obj) {
+	CHora fecha2(*obj);
+	cout << "Ejecutado con sobrecarga\n";
 	return fecha2;
 }

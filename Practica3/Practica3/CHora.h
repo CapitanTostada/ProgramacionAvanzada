@@ -18,7 +18,7 @@ public:
 	~CHora();
 	bool AsignarHora(int nHoras, int nMinutos, int nSegundos, char *pszFormato);
 	void ObtenerHora(int& nHoras, int& nMinutos, int& nSegundos, char *pszFormato) const;
-	CHora operator =(CHora obj);
+	CHora& operator =(CHora* obj);
 };
 
 void VisualizarHora(const CHora& hora);

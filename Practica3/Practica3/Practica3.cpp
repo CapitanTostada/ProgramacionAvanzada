@@ -1,11 +1,11 @@
 #include "CHora.h"
 #include <cstdio>
 #include <iostream>
+#include <stdlib.h>
 #include "../../Practica 2/Practica2/Practica2/utils.h"
 using namespace std;
 
 int main() {
-	CHora Fecha;
 	Lista seleccion;
 	int opcion;
 	bool salir = false, correcta = false;
@@ -17,6 +17,8 @@ int main() {
 	seleccion = Lista(--opcion);
 
 	while (salir == false) {
+		system("cls");
+
 		switch (seleccion) {
 		case Local:
 			SubMenu();
@@ -32,7 +34,12 @@ int main() {
 			break;
 		}
 		case Asignacion: {
-			CHora fecha3 = *p;
+			if (p == NULL) {
+				cout << "Ejecute antes la opcion 2\n";
+				break;
+			}
+			CHora fecha3;
+			fecha3.operator=(p);
 			break;
 		}
 		case Terminar:
