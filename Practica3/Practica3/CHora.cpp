@@ -5,15 +5,13 @@
 #include "../../Practica 2/Practica2/Practica2/utils.h"
 using namespace std;
 
-bool CHora::AsignarFormato(char* pszFormato) {
-	if (pszFormato != NULL && strlen(pszFormato) < 10) {
-		delete m_pszFormato;
-		m_pszFormato = new char[9];
+bool CHora::AsignarFormato(string pszFormato) {
 
+	if (!pszFormato.empty() && pszFormato.length() < 10) {
 		converMayus(pszFormato);
 
 		if (pszFormato != 0 && m_pszFormato != 0)
-			strcpy_s(m_pszFormato, 9, pszFormato);
+			m_pszFormato = pszFormato);
 		return true;
 	}
 	else
@@ -21,7 +19,7 @@ bool CHora::AsignarFormato(char* pszFormato) {
 }
 
 bool CHora::Formato24() const {
-	if (strcmp(m_pszFormato, "24 HORAS") == 0)
+	if (m_pszFormato == "24 HORAS")
 		return true;
 	return false;
 }
@@ -33,7 +31,7 @@ bool CHora::EsHoraCorrecta() const {
 		else
 			return false;
 	}
-	else if (strcmp(m_pszFormato,"AM") == 0 || strcmp(m_pszFormato,"PM") == 0) {
+	else if (m_pszFormato == "AM" || m_pszFormato == "PM") {
 		if (ComprobarLimites(1, 12, m_nHoras) && ComprobarLimites(0, 59, m_nMinutos) && ComprobarLimites(0, 59, m_nSegundos))
 			return true;
 		else
@@ -44,11 +42,11 @@ bool CHora::EsHoraCorrecta() const {
 }
 
 
-CHora::CHora(int nHora, int nMinutos, int nSegundos, char* cad) {
+CHora::CHora(int nHora, int nMinutos, int nSegundos, string cad) {
 	m_nHoras = nHora;
 	m_nMinutos = nMinutos;
 	m_nSegundos = nSegundos;
-	char cadena[] = "24 HORAS";
+	string cadena = "24 HORAS";
 	if (cad == NULL)
 		AsignarFormato(cadena);
 	else
@@ -73,7 +71,7 @@ CHora::~CHora() {
 	cout << "Destructor ejecutado\n";
 }
 
-bool CHora::AsignarHora(int nHoras, int nMinutos, int nSegundos, char *pszFormato) {
+bool CHora::AsignarHora(int nHoras, int nMinutos, int nSegundos, string pszFormato) {
 	if (AsignarFormato(pszFormato)) {
 		m_nHoras = nHoras;
 		m_nMinutos = nMinutos;
@@ -85,23 +83,23 @@ bool CHora::AsignarHora(int nHoras, int nMinutos, int nSegundos, char *pszFormat
 	return false;
 }
 
-void CHora::ObtenerHora(int& nHoras, int& nMinutos, int& nSegundos, char *pszFormato) const {
+void CHora::ObtenerHora(int& nHoras, int& nMinutos, int& nSegundos, string pszFormato) const {
 	nHoras = m_nHoras;
 	nMinutos = m_nMinutos;
 	nSegundos = m_nSegundos;
 	if (pszFormato != 0 && m_pszFormato != 0)
-		strcpy_s(pszFormato, 9, m_pszFormato);
+		pszFormato = m_pszFormato);
 	else
-		*pszFormato = 0;
+		pszFormato = NULL;
 }
 
 void VisualizarHora(const CHora& hora) {
 	int nHoras, nMinutos, nSegundos;
-	char* pszFormato = new char[9]; 
+	string pszFormato; 
 
 	hora.ObtenerHora(nHoras, nMinutos, nSegundos, pszFormato);
 
-	if (pszFormato != NULL && *pszFormato != 0) {
+	if (!pszFormato.empty() && !pszFormato.empty()) {
 		cout << "Son las: " << nHoras
 			<< ":" << nMinutos
 			<< ":" << nSegundos
@@ -169,7 +167,7 @@ void SubMenu() {
 		cout << "Introduzca los sedgundos: \n";
 		int nSegundos = comprobarEntrada();
 		cout << "Introduzca el formato: \n";
-		char* cad = LeerCadena(9);
+		string cad = LeerCadena(9);
 		CHora Fecha(nHora, nMinutos, nSegundos, cad);
 		VisualizarHora(Fecha);
 		break;
