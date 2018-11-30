@@ -50,17 +50,20 @@ CMonomio::SetExp(int nExp) {
 
 //********************Clase de CTermino********************
 
-CTermino::CTermino(double dCoef = 0, int nExp = 0, CTermino pSig = NULL) {
+CTermino::CTermino(double dCoef, int nExp, CTermino *pSig) {
 	SetCoef(dCoef);
 	SetExp(nExp);
+	m_pSig = pSig;
 }
-CTermino::CTermino(const CMonomio& mono, CTermino pSig = NULL) {
+CTermino::CTermino(const CMonomio& mono, CTermino *pSig) {
 	SetCoef(mono.GetCoef());
 	SetExp(mono.GetExp());
+	m_pSig = pSig;
 }
-CTermino::CTermino(const CTermino& termino, CTermino pSig = NULL) {
+CTermino::CTermino(const CTermino& termino, CTermino *pSig) {
 	SetCoef(termino.GetCoef());
 	SetExp(termino.GetExp());
+	m_pSig = pSig;
 }
 
 CTermino::GetCoef() const {
@@ -105,4 +108,40 @@ CPolinomio::MostrarPoli(ostream& os) const {
 		} while (pPos);
 	else
 		os << "0 ";
+}
+CPolinomio::CPolinomio(const vector<CMonomio>& vec) {
+	m_pCabecera = NULL;
+	for (unsigned int i = 0; i < vec.size(); i++) {
+		*this << vec[i];
+	}
+}
+
+CPolinomio::CPolinomio(double dCoef, int nExp) {
+	if (dCoef == 0)
+		m_pCabecera = NULL;
+	else {
+		CTermino termino(dCoef,nExp);
+		m_pCabecera = &termino;
+	}
+}
+
+CPolinomio::CPolinomio(const CMonomio& mono) {
+	if (mono.GetCoef == 0)
+		m_pCabecera = NULL;
+	else {
+		CTermino termino(mono);
+		m_pCabecera = &termino;
+	}
+}
+
+CPolinomio& operator=(const CPolinomio& poli) {
+	if (poli.m_pCabecera != NULL) {
+		delete[] poli.m_pCabecera;
+	}
+	*this << poli.m_pCabecera;
+	return *this;
+}
+
+ostream& operator<<(ostream& os, const CPolinomio& Poli) {
+	if()
 }
