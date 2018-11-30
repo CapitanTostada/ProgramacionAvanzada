@@ -24,9 +24,9 @@ private:
 	CTermino *m_pSig;
 
 public:
-	CTermino(double dCoef = 0, int nExp = 0, CTermino pSig = NULL);
-	CTermino(const CMonomio& mono, CTermino pSig = NULL);
-	CTermino(const CTermino& termino, CTermino pSig = NULL);
+	CTermino(double dCoef = 0, int nExp = 0, CTermino *pSig = NULL);
+	CTermino(const CMonomio& mono, CTermino *pSig = NULL);
+	CTermino(const CTermino& termino, CTermino *pSig = NULL);
 
 	double GetCoef() const;
 	int GetExp() const;
@@ -46,7 +46,12 @@ private:
 public:
 	//Introducir constructores
 	CPolinomio();
+	CPolinomio(const CPolinomio& poli) : m_pCabecera(poli.m_pCabecera) {}
+	CPolinomio(const vector<CMonomio>& vec);
+	CPolinomio(const CMonomio& mono);
+	CPolinomio(double dCoef = 0, int nExp = 0);
 
 	void MostrarPoli(ostream& os) const;
-
+	~CPolinomio() { delete[] m_pCabecera; }
+	CPolinomio& operator=(const CPolinomio& poli);
 };
