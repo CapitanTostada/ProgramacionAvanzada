@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{4DC87702-9C7E-4CDA-AA63-599C7E373A8D}</ProjectGuid>
+    <ProjectGuid>{EA4911D6-F353-4E7E-BD60-D2C2D1EC52B9}</ProjectGuid>
     <RootNamespace>Practica6</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -115,6 +115,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Clases.cpp" />
+    <ClCompile Include="Practica6.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Clases.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
