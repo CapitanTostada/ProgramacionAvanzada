@@ -96,12 +96,13 @@ int main()
 	cout << endl << "Prueba operador +" << endl;
 	cout << "N = " << N << endl;
 	cout << "U = " << U << endl;
-	cout << "N+U = " << N + U << endl;
+	cout << "N+U = " << U + N << endl;
 
 	cout << endl << "Prueba operador - y +=" << endl;
 	cout << "R = " << R << endl;
 	cout << "S = " << S << endl;
 	cout << "R-S = " << R - S << endl;
+	R << m3 << m4 << -m2;
 	cout << "R+=S = " << (R += S) << endl;
 
 	cout << endl << "Prueba operador -=" << endl;
