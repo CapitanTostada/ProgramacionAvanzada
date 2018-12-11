@@ -117,7 +117,8 @@ CPolinomio& CPolinomio::operator=(const CPolinomio& poli)
 	aux = poli.m_pCabecera;
 	do
 	{
-		*this << aux->GetMono();		//this->operator<<(poli.m_pCabecera->GetMono());
+		*this << aux->GetMono();		
+		//this->operator<<(poli.m_pCabecera->GetMono());
 		aux = aux->GetSig();
 
 	} while (aux != NULL);
@@ -296,7 +297,10 @@ CPolinomio& CPolinomio::operator+=(const CPolinomio& P)
 
 CPolinomio& CPolinomio::operator-=(const CPolinomio& P)
 {
-	return *this = *this - P;
+	CPolinomio aux, aux2;
+	aux = *this - P;
+	*this = aux2;
+	return *this = aux;
 }
 
 double CPolinomio::operator[](int exp) const
