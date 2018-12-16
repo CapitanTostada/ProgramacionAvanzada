@@ -111,16 +111,16 @@ CPolinomio& CPolinomio::operator<<(const CMonomio& mono)
 
 CPolinomio& CPolinomio::operator=(const CPolinomio& poli)
 {
-
-	//Liberar memoria dinámica previa del objeto destino, cómo??
+	if (*this == poli)
+		return *this;
+	this->~CPolinomio();
+	m_pCabecera == NULL;
 	CTermino *aux;
 	aux = poli.m_pCabecera;
 	do
 	{
 		*this << aux->GetMono();		
-		//this->operator<<(poli.m_pCabecera->GetMono());
 		aux = aux->GetSig();
-
 	} while (aux != NULL);
 
 	return *this;
@@ -211,7 +211,7 @@ bool CPolinomio::operator==(const CPolinomio& P2)
 {
 	if (this->m_pCabecera == NULL || P2.m_pCabecera == NULL)
 	{
-		cout << "Error ==, Polinomio vacio" << endl;
+		//cout << "Error ==, Polinomio vacio" << endl;
 		return false;
 	}
 	else if (this->Grado() == P2.Grado())
@@ -297,10 +297,8 @@ CPolinomio& CPolinomio::operator+=(const CPolinomio& P)
 
 CPolinomio& CPolinomio::operator-=(const CPolinomio& P)
 {
-	CPolinomio aux, aux2;
-	aux = *this - P;
-	*this = aux2;
-	return *this = aux;
+	*this = (*this - P);
+	return *this;
 }
 
 double CPolinomio::operator[](int exp) const
