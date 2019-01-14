@@ -44,7 +44,9 @@ public:
 
 	double GetCoef() const { return m_Monomio.GetCoef(); }
 	int GetExp() const { return m_Monomio.GetExp(); }
-	CMonomio GetMono() const { return m_Monomio; }
+	CMonomio GetMono() const { 
+		return m_Monomio; 
+	}
 	CTermino * GetSig() const { return m_pSig; }
 
 	void SetCoef(double dCoef) { m_Monomio.SetCoef(dCoef); }
